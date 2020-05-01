@@ -1,0 +1,165 @@
+/* ---------------------------------------------------------------------- */
+/*       Big tablets to 1200px (widths smaller that the 1140px row)       */
+/* ---------------------------------------------------------------------- */
+@media only screen and (max-width: 1200px) {
+	.hero-text-box {
+		position: absolute;
+		width: 100%; /* width is not fixed anymore, it changed to 100% */
+		padding: 0 2%;
+	}
+
+	.row { padding: 0 2%; }
+}
+
+/* ---------------------------------------------------------------------- */
+/*           Small tablets to big tablets: from 768px to 1023px           */
+/* ---------------------------------------------------------------------- */
+@media only screen and (max-width: 1023px) {
+	body { font-size: 18px; } /* reduce font-size */
+
+	section { padding: 60px 0; } /* reduce white space */
+
+	.long-copy {
+		width: 80%; /* increase width */
+		margin-left: 10%;
+	}
+
+	.steps-box:first-child { margin-top: 10px; } /* reduce white space */
+
+	.steps-box:last-child { margin-top: 10px; } /* reduce white space */
+
+	.works-step { margin-bottom: 40px; } /* reduce white space */
+
+	.works-step:last-of-type { margin-bottom: 60px; } /* reduce white space */
+
+	.btn-app img { /* reduce store buttons */
+		height: 45px;
+		width: auto;
+	}
+
+	.app-screen { width: 50%; } /* increase iPhone image */
+
+	.city-feature { font-size: 90%; } /* reduce font-size */
+
+	.icon-sm { /* reduce icons */
+		width: 18px;
+		margin-right: 5px;
+	}
+
+	.plan-box { /* increase width */
+		width: 100%;
+		margin-left: 0%;
+	}
+
+	.plan-price { font-size: 250%; } /* reduce font-size */
+
+	.contact-form { width: 80%; } /* increase width */
+
+}
+
+/* ---------------------------------------------------------------------- */
+/*           Small phones to small tablets: from 481px to 767px           */
+/* ---------------------------------------------------------------------- */
+@media only screen and (max-width: 767px) {
+	body { font-size: 16px; } /* reduce font-size */
+
+	section { padding: 30px 0; } /* reduce white space */
+
+	.hero-text-box,
+	.row { padding: 0 4%; }
+
+	.col { /* colums are no longer side by side */
+		width: 100%;
+		margin: 0 0 4% 0%;
+	}
+
+	.main-nav { display: none; } /* hide navigation bar */
+
+	.mobile-nav-icon { /* display menu for mobile phones */
+		display: inline-block;
+	}
+
+	.main-nav {
+		float: left; /* move the menu from right to left */
+		margin-top: 35px; /* reduce white space */
+		margin-left: 25px; /* increase margin-left */
+	}
+
+	.main-nav li {
+		display: block; /* elements are no longer side by side (block: force line break) */
+	}
+
+	.main-nav li a:link,
+	.main-nav li a:visited {
+		display: block;
+		border: 0; /* remove border, mobile phones don't have hover */
+		padding: 10px 0; /* increase distance between elements */
+		font-size: 100%; /* increase font-size */
+	}
+
+	.sticky .main-nav {
+		margin-top: 10px;
+	}
+
+	.sticky .main-nav li a:link,
+	.sticky .main-va li a:visited {
+		padding: 10px 0;
+	}
+
+	.sticky .mobile-nav-icon { margin-top: 25px; } /* reduce margin-top */
+	.sticky .mobile-nav-icon .icon { color: #555; } /* change menu icon color */
+
+	h1 { font-size: 180%; } /* reduce font-size */
+
+	h2 { font-size: 160%; } /* reduce font-size */
+
+	.long-copy {
+		width: 100%; /* increase width */
+		margin-left: 0%;
+	}
+
+	.app-screen { width: 40%; } /* reduce iPhone image */
+
+	.steps-box:first-child { text-align: center; } /* center the iPhone image */
+
+	.works-step { margin-bottom: 20px; } /* reduce white space */
+
+	.works-step:last-of-type { margin-bottom: 30px; } /* reduce white space */
+
+	.works-step div { /* reduce circle around the numbers: only css */
+		height: 40px;
+		width: 40px;
+		margin-right: 15px;
+		padding: 4px;
+		font-size: 120%;
+	}
+
+	.btn-app img { /* reduce store buttons */
+		height: 40px;
+		width: auto;
+	}
+
+	.contact-form { width: 90%; } /* increase width */
+
+	.contact-form .row:last-child { /* center button */
+		text-align: center;
+	}
+
+	.footer-nav,
+	.social-links { /* center navigation bars */
+		float: none;
+		text-align: center;
+	}
+
+	.social-links {
+		padding-top: 20px;
+	}
+}
+
+/* ---------------------------------------------------------------------- */
+/*                    Small phones: from 0px to 480px                     */
+/* ---------------------------------------------------------------------- */
+@media only screen and (max-width: 480px) {
+	section { padding: 25px 0; } /* reduce white space */
+	.contact-form { width: 100%; } /* increase width */
+}

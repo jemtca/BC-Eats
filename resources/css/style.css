@@ -1,0 +1,665 @@
+/*
+
+Black color: #000
+Grey color (text): #7f8c8d
+White color (background): #fff
+
+Blue color: #54a0ff
+Grey color (background): #f4f4f4
+
+Grey color (links[hover/visited]): #555
+Blue color (buttons[hover/visited]): #2e86de
+
+White color (box shadow): #efefef
+Grey color (border color): #e8e8e8
+White color (box background): #fcfcfc
+
+Grey color (border form): #ccc
+
+Grey color (footer background): #333
+Grey color (footer links[link-visited] and paragraph): #888
+White color (footer links[hover-active]): #ddd
+
+Facebook color: #3b5998
+Twitter color: #55acee
+Instagram color: #e95950
+Snapchat color: #fffc00
+
+*/
+
+/* ---------------------------------------------------------------------- */
+/*                              BASIC SETUP                               */
+/* ---------------------------------------------------------------------- */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	background-color: #fff;
+	color: #7f8c8d;
+	font-family: 'Lato', 'Arial', sans-serif;
+	font-weight: 300;
+	font-size: 20px; /* [font-size: x%;] means a % of the base size (20px) */
+	text-rendering: optimizeLegibility;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+}
+
+.clearfix {zoom: 1} /* clear the float after an element (problem with the section-meals) */
+.clearfix:after {
+	content: ".";
+	clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+/* ---------------------------------------------------------------------- */
+/*                          REUSABLE COMPONENTS                           */
+/* ---------------------------------------------------------------------- */
+
+.row {
+	/*center div container*/
+	max-width: 1140px;
+	margin: 0 auto;
+}
+
+section {
+	padding: 80px 0; /* add white space */
+}
+
+.box {
+	padding: 1%; /* add extra space between colums */
+}
+
+/* ----- HEADINGS ----- */
+h1,
+h2,
+h3 {
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+h1 {
+	margin-top: 0;
+	margin-bottom: 20px;
+	color: #fff;
+	font-size: 240%;
+	word-spacing: 4px;
+	letter-spacing: 1px;
+}
+
+h2 {
+	font-size: 180%;
+	word-spacing: 4px;
+	text-align: center;
+	margin-bottom: 30px;
+	letter-spacing: 1px;
+}
+
+h3 {
+	font-size: 110%;
+	margin-bottom: 15px;
+}
+
+h2:after { /* orange line: only css */
+	display: block;
+	height: 2px;
+	background-color: #54a0ff;
+	content: ""; /* content has to be epecify whenever after pseudo-class is used */
+	width: 100px;
+	margin: 0 auto; /* center the line */
+	margin-top: 30px;
+}
+
+/* ----- PARAGRAPHS ----- */
+.long-copy {
+	line-height: 145%;
+	width: 70%;
+	margin-left: 15%;
+	margin-right: 15%;
+}
+
+.box p {
+	font-size: 90%;
+	line-height: 145%;
+}
+
+/* ----- ICONS ----- */
+.icon-bg {
+	font-size: 350%;
+	display: block;
+	color: #54a0ff;
+	margin-bottom: 10px;
+}
+
+.icon-sm {
+	display: inline-block; /* make the inline element to assign some width and center it */
+	width: 30px;
+	text-align: center;
+	color: #54a0ff;
+	font-size: 120%;
+	margin-right: 10px;
+	/* align icon and text */
+	line-height: 120%;
+	vertical-align: middle;
+	margin-top: -6px;
+}
+
+/* ----- LINKS ----- */
+a:link,
+a:visited {
+	color: #54a0ff;
+	 text-decoration: none; /* remove underline */
+	 padding-bottom: 1px;
+	 border-bottom: 1px solid #54a0ff;
+	 transition: color 0.2s, border-bottom 0.2s; /* when hover, the link color and border doesn't change instantally */
+}
+a:hover,
+a:active {
+	color: #555;
+	border-bottom: 1px solid transparent;
+}
+
+/* ----- BUTTONS ----- */
+.btn:link,
+.btn:visited,
+input[type=submit] {
+	display: inline-block; /* make the inline element to have margin and padding */
+	padding: 10px 30px;
+	font-weight: 300;
+	text-decoration: none; /* remove underline */
+	border-radius: 200px;
+	border: 1px solid #54a0ff;
+	transition: background-color 0.2s, border 0.2s, color 0.2s; /* when hover, the button color doesn't change instantally */
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit] {
+	background-color: #54a0ff;
+	color: #fff;
+	margin-right: 15px;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+	color: #54a0ff;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+	background-color: #2e86de;
+}
+
+.btn-full:hover,
+.btn-full:active {
+	border: 1px solid #2e86de;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+	border: 1px solid #2e86de;
+	color: #fff;
+}
+
+/* ---------------------------------------------------------------------- */
+/*                                 HEADER                                 */
+/* ---------------------------------------------------------------------- */
+
+header {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero.jpg);
+	background-size: cover; /* to avoid to see a zoomed backfround */
+	background-position: center;
+	height: 100vh; /* make the image as high as the viewport */
+	background-attachment: fixed; /* the image always stays in the same place when scrolling */
+}
+
+.hero-text-box {
+	position: absolute;
+	width: 1140px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.logo-white {
+	height: 175px;
+	width: auto;
+	float: left;
+	margin-top: 20px;
+}
+
+.logo-black {
+	display: none;
+	height: 50px;
+	width: auto;
+	float: left;
+	margin: 5px 0;
+}
+
+/* ----- MAIN NAV ----- */
+.main-nav {
+	float: right;
+	list-style: none; /* remove the bullet points */
+	margin-top: 55px;
+}
+
+.main-nav li {
+	display: inline; /* the element (li) will not cause a line break, li elements will be side by side */
+	margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-va li a:visited {
+	padding: 8px 0;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 90%; /* want 18px, so 18/20 = 0.9 */
+	border-bottom: 2px solid transparent;
+	transition: border-bottom 0.2s; /* when hover, the bottom border doesn't appear instantally */
+}
+
+.main-nav li a:hover,
+.main-va li a:active {
+	border-bottom: 2px solid #54a0ff;
+}
+
+/* ----- STICKY NAV ----- */
+.sticky {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.98);
+	box-shadow: 0 2px 2px #efefef;
+	z-index: 9999; /* this slement will be always on top of all the other elements */
+}
+
+.sticky .main-nav {
+	margin-top: 18px;
+}
+
+.sticky .main-nav li a:link,
+.sticky .main-va li a:visited {
+	padding: 19px 0;
+	color: #555;
+}
+
+.sticky .logo-white {
+	display: none;
+}
+
+.sticky .logo-black {
+	display: block;
+}
+
+/* ----- MOBILE NAV ----- */
+.mobile-nav-icon {
+	float: right;
+	margin-top: 30px;
+	cursor: pointer;
+	display: none;
+}
+
+.icon {
+	font-size: 200%;
+	color: #fff;
+}
+
+/* ---------------------------------------------------------------------- */
+/*                                FEATURES                                */
+/* ---------------------------------------------------------------------- */
+
+.section-features .long-copy {
+	margin-bottom: 30px;
+}
+
+/* ---------------------------------------------------------------------- */
+/*                                 MEALS                                  */
+/* ---------------------------------------------------------------------- */
+
+.section-meals {
+	padding: 0;
+}
+
+.meals-showcase {
+	list-style: none; /* remove the bullet points */
+	width: 100%;
+}
+
+.meals-showcase li {
+	display: block;
+	float: left;
+	width: 25%;
+}
+
+.meal-photo {
+	width: 100%; /* it means this element has the same with as its parent (meals-showcase li) */
+	margin: 0;
+	overflow: hidden; /* it fixes the problem when the image is bigger than the container [scale()] */
+	background-color: #000; /* when opacity is used, the image gets darker. Without black background, the image gets brighter */
+}
+
+.meal-photo img {
+	opacity: 0.7;
+	width: 100%; /* it means this element has the same with as its parent (meal-photo) */
+	height: auto;
+	transform: scale(1.15);
+	transition: transform 0.5s, opacity 0.5s; /* when hover, the image doesn't zoom-out/get brighter instantally */
+}
+
+.meal-photo img:hover {
+	opacity: 1;
+	transform: scale(1.03);
+}
+
+/* ---------------------------------------------------------------------- */
+/*                              HOW IT WORKS                              */
+/* ---------------------------------------------------------------------- */
+
+.section-steps {
+	background-color: #f4f4f4;
+}
+
+.steps-box:first-child {
+	text-align: right;
+	padding-right: 3%;
+	margin-top: 30px;
+}
+
+.steps-box:last-child {
+	padding-left: 3%;
+	margin-top: 70px;
+}
+
+.app-screen {
+	width: 40%;
+}
+
+.works-step {
+	margin-bottom: 50px;
+}
+
+.works-step:last-of-type {
+	margin-bottom: 80px;
+}
+
+.works-step div { /* circle around the numbers: only css */
+	color: #54a0ff;
+	border: 2px solid #54a0ff;
+	display: inline-block; /* the element (div) will not cause a line break, number and text will be side by side */
+	border-radius: 50%;
+	height: 55px;
+	width: 55px;
+	text-align: center;
+	padding: 5px;
+	float: left;
+	font-size: 150%;
+	margin-right: 25px;
+}
+
+.btn-app:link,
+.btn-app:visited {
+	border-bottom: none; /* hide the orange underline defined for links */ 
+}
+
+.btn-app img {
+	height: 50px;
+	width: auto;
+	margin-right: 10px;
+}
+
+/* ---------------------------------------------------------------------- */
+/*                                 CITIES                                 */
+/* ---------------------------------------------------------------------- */
+
+.box img {
+	width: 100%;
+	height: auto;
+	margin-bottom: 15px;
+}
+
+.city-feature {
+	margin-bottom: 5px;
+}
+
+/* ---------------------------------------------------------------------- */
+/*                              TESTIMONIALS                              */
+/* ---------------------------------------------------------------------- */
+
+.section-testimonials {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/back-customers.jpg);
+	background-size: cover; /* to avoid to see a zoomed backfround */
+	background-position: center;
+	color: #fff;
+	background-attachment: fixed; /* the image always stays in the same place when scrolling */
+}
+
+blockquote {
+	padding: 2%;
+	font-style: italic;
+	line-height: 145%;
+	position: relative;
+	margin-top: 40px;
+}
+
+blockquote:before {
+	content: "\201C"; /* put text using only css */
+	font-size: 500%;
+	display: block; /* the element (blockquote:before) will have a line break */
+	position: absolute; /* in order to use absolute position, parent class has to use relative position */
+	top: -5px;
+	left: -5px;
+}
+
+cite {
+	font-size: 90%;
+	margin-top: 25px;
+	display: block; /* the element (cite) will have a line break */
+}
+
+cite img {
+	height: 50px;
+	border-radius: 50%;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
+/* ---------------------------------------------------------------------- */
+/*                                 PLANS                                  */
+/* ---------------------------------------------------------------------- */
+
+.section-plans {
+	background-color: #f4f4f4;
+}
+
+.plan-box {
+	background-color: #fff;
+	border-radius: 5px;
+	width: 90%;
+	margin-left: 5%;
+	box-shadow: 0 2px 2px #efefef;
+}
+
+.plan-box div {
+	padding: 15px;
+	border-bottom: 1px solid #e8e8e8; 
+}
+
+.plan-box div:first-child {
+	background-color: #fcfcfc;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.plan-box div:last-child {
+	text-align: center;
+	border: 0;
+}
+
+.plan-price {
+	font-size: 300%;
+	font-weight: 100;
+	margin-bottom: 10px;
+	color: #54a0ff;
+}
+
+.plan-price span {
+	font-size: 30%;
+	font-weight: 300;
+}
+
+.plan-price-meal {
+	font-size: 80%;
+}
+
+.plan-box ul {
+	list-style: none; /* remove the bullet points */
+}
+
+.plan-box ul li {
+	padding: 5px 0;
+}
+
+/* ---------------------------------------------------------------------- */
+/*                                  FORM                                  */
+/* ---------------------------------------------------------------------- */
+
+.contact-form {
+	width: 60%;
+	margin: 0 auto; /* form centered */
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea {
+	width: 100%;
+	padding: 7px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+
+textarea {
+	height: 100px;
+}
+
+input[type=checkbox] {
+	margin: 10px 10px 10px 0;
+}
+
+*:focus {
+	outline: none; /* it gets rid of blue borders the browser adds  */
+}
+
+/* ---------------------------------------------------------------------- */
+/*                                 FOOTER                                 */
+/* ---------------------------------------------------------------------- */
+
+footer {
+	background-color: #333;
+	padding: 40px;
+	font-size: 80%;
+}
+
+.footer-nav,
+.social-links {
+	list-style: : none; /* remove the bullet points */
+}
+
+.footer-nav {
+	float: left;
+}
+
+.social-links {
+	float: right;
+}
+
+.footer-nav li,
+.social-links li {
+	display: inline-block; /* the element (li) will not cause a line break, li elements will be side by side */
+	margin-right: 20px;
+}
+
+.footer-nav li:last-child,
+.social-links li:last-child {
+	margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited {
+	text-decoration: none; /* remove underline */
+	border: 0;
+	color: #888;
+	transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+	color: #ddd;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+	font-size: 160%;
+}
+
+.facebook,
+.twitter,
+.instagram,
+.snapchat {
+	transition: color 0.2s;
+}
+
+.facebook:hover {
+	color: #3b5998;
+}
+
+.twitter:hover {
+	color: #55acee;
+}
+
+.instagram:hover {
+	color: #e95950;
+}
+
+.snapchat:hover {
+	color: #fffc00;
+}
+
+footer p {
+	color: #888;
+	text-align: center;
+	margin-top: 20px;
+}
+
+/* ---------------------------------------------------------------------- */
+/*                               ANIMATIONS                               */
+/* ---------------------------------------------------------------------- */
+
+.js--wp-1,
+.js--wp-2,
+.js--wp-3 {
+	opacity: 0;
+	animation-duration: 1s;
+}
+
+.js--wp-4 {
+	animation-duration: 1s;
+}
+
+.js-wp-1.animated,
+.js-wp-2.animated,
+.js-wp-3.animated {
+	opacity: 1;
+}
